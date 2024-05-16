@@ -11,10 +11,9 @@ def index(request):
 		''' api key might be expired use your own api_key 
 			place api_key in place of appid ="your_api_key_here " '''
 		api_key="bd5e378503939ddaee76f12ad7a97608"
-		# source contain JSON data from API 
-		source = urllib.request.urlopen( 
-			'http://api.openweathermap.org/data/2.5/weather?q='
-					+ city + '&appid='+api_key).read() 
+		url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+		url = url.replace(" ", "%20")
+		source = urllib.request.urlopen(url).read() 
 
 		# converting JSON data to a dictionary 
 		list_of_data = json.loads(source) 
