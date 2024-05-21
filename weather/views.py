@@ -30,4 +30,4 @@ def index(request):
 		print(data) 
 	else: 
 		data ={} 
-	return render(request, "weather_card.html", data) 
+	return render(request, "weather_ui.html", data) 
